@@ -1,0 +1,32 @@
+[user]
+	name = your name
+	email = emailaddress@somedomain.com
+[core]
+	autocrlf = true
+[push]
+	default = matching
+[diff]
+	tool = vsdiffmerge
+[difftool]
+	prompt = true
+[difftool "vsdiffmerge"]
+	cmd = \"vsDiffMerge.exe\" \"$LOCAL\" \"$REMOTE\" //t
+	keepbackup = false
+	trustExitCode = true
+[difftool "winmerge"]
+	cmd = \"WinMergeU.exe\" -u -e $LOCAL $REMOTE
+	trustExitCode = true
+[merge]
+	tool = vsdiffmerge
+[mergetool]
+	prompt = true
+[mergetool "vsdiffmerge"]
+	cmd = \"vsDiffMerge.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\" //m
+	keepbackup = false
+	keepTemporaries = false
+	trustExitCode = true
+[mergetool "winmerge"]
+	cmd = \"WinMergeU.exe\" -e -ub -x -wl -u -maximise -dl \"$LOCAL\" -dr \"$REMOTE\" $LOCAL $REMOTE $MERGED
+	keepbackup = false
+	keepTemporaries = false
+	trustExitCode = true
